@@ -50,6 +50,28 @@ API 设计原则
 用户注销: DELETE 204, 400, 401, 403, 500
 204: No content
 
-##
+## 用户资源
+- List all videos: 
+- /user/:username/videos 可能会加分页
+- Get one video:
+- /user/:username/videos/:vid 
+- Delete one video
+- 204, 400, 401, 403, 500
+
+## 评论
+show comments:
+/videos/:vid-id/comments Method: GET, SC 200, 400, 500
+Post a comment:
+/videos/vid/comments Method: POST, SC 201
+
+![](.ch3_images/8ac0dc71.png)
 
 
+## 总结
+* 树形结构 * 的关系 user -> video -> comments
+![](.ch3_images/0954007f.png)
+
+
+## 正常的流程
+hanlder -> validation(1. request, 2.user)-> business logic -> response
+*! session
