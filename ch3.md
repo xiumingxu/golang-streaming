@@ -75,3 +75,49 @@ Post a comment:
 ## 正常的流程
 hanlder -> validation(1. request, 2.user)-> business logic -> response
 *! session
+
+# 数据库设计 2.7
+api模型 ==> 
+![](.ch3_images/932b3f88.png)
+
+![视频资源](.ch3_images/4cceff83.png)
+视频资源可能会比用户的资源大 
+authorid 不设置成外键, 因为外键不够灵活?
+create_time 是入库的时间, 
+display_ctime 是text 是crewate_time的translation
+
+![](.ch3_images/d435b52a.png)
+- video_id varChar: 还是外键, 不是直接的外键, 而是代码处理
+- author_id:  
+- content
+- time
+
+除了3个id, 
+
+- 第三范式: 不要有太多冗余信息, 保持原子性
+- 好处 -> 当添加字段的时候, 可以多加点
+
+![Sessions](.ch3_images/4a6264e4.png)
+- ttl tinytext 是过期时间
+- login_name 用id 也可以
+session的机制更重要
+
+![](.ch3_images/ca7afc60.png)
+
+## 操作数据 mysql
+```show tables```
+
+```use video_server```
+
+```show tables```
+
+```describe users;```
+![](.ch3_images/6140cbc0.png)
+
+test
+![](.ch3_images/af0ae1de.png)
+
+命令
+
+go test
+go test -v
